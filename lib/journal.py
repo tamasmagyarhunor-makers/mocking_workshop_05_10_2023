@@ -8,5 +8,7 @@ class Journal():
         punctuation = self.string_checker.has_punctuation(entry)
         if punctuation == False:
             raise Exception('Please add punctuation!')
+        else:
+            self.notebook.append(entry)
             
             

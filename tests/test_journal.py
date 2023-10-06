@@ -36,6 +36,23 @@ def test_journal_entry_does_not_have_punctuation():
 
     assert actual == expected
 
+def test_journal_entry_does_have_correct_punctuation():
+    journal_owner = "Jordan"
+    # you need to make a Mock
+    string_checker_mock = Mock()
+    journal = Journal(journal_owner, string_checker_mock)
+
+    # we need to be expecting the dependant objects function to be called ( has_punctuation )
+    # we need to set the return value for that function
+    string_checker_mock.has_punctuation.return_value = True
+
+    journal.add("I feel amazing!")
+    
+    actual = journal.notebook
+    expected = ["I feel amazing!"]
+
+    assert actual == expected
+
 
 
 
